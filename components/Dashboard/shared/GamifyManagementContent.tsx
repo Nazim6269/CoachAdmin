@@ -90,6 +90,7 @@ import GamifyGoal from '@/icons/GamifyGoal';
 import GamifyMarathon from '@/icons/GamifyMarathon';
 import { Badge } from '@/types/badge/types';
 import { badgeService } from '@/lib/service/badge/badge.service';
+import { DEMO_BADGES } from '@/public/demoData/DemoData';
 
 
 
@@ -117,17 +118,17 @@ const GamifyManagementContent = () => {
             setError('Failed to load badges');
             console.error(err);
         } finally {
-            ``
             setLoading(false);
         }
     };
 
     if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+
+    const displayBadges = error || !badges.length ? DEMO_BADGES : badges;
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
-            {badges.map((badge) => {
+            {displayBadges.map((badge) => {
 
                 const IconComponent = iconMap[badge.key as keyof typeof iconMap] || GamifyFirst;
 

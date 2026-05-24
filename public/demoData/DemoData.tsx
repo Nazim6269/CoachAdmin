@@ -1,3 +1,6 @@
+import type { SubscriptionPlan } from "@/types/subscription/types";
+import type { Badge } from "@/types/badge/types";
+
 export const DEMO_OVERVIEW = {
   totalUsers: 1284,
   activeUsers: 847,
@@ -124,6 +127,21 @@ export const DEMO_SESSION_TYPES = {
     { type: "Assessment", count: 28 },
   ],
 };
+
+export const DEMO_PLANS: SubscriptionPlan[] = [
+  { id: "plan_1", name: "Starter", price: "29", currency: "USD", interval: "month", features: ["1 coaching session/month", "Basic workout plans", "Email support", "Progress tracking"], description: "Perfect for beginners", is_active: 1, kind: "basic" },
+  { id: "plan_2", name: "Pro", price: "79", currency: "USD", interval: "month", features: ["4 coaching sessions/month", "Custom nutrition plan", "Priority support", "Advanced analytics", "Session recordings"], description: "For dedicated athletes", is_active: 1, kind: "popular" },
+  { id: "plan_3", name: "Elite", price: "149", currency: "USD", interval: "month", features: ["Unlimited coaching sessions", "Personalized meal plans", "24/7 priority support", "VIP facility access", "Guest passes (2/month)", "Exclusive workshops"], description: "The ultimate experience", is_active: 1, kind: "premium" },
+];
+
+export const DEMO_BADGES: Badge[] = [
+  { id: "b1", key: "first_session", title: "First Session", description: "Completed your first training session", points: 10, icon: "first_session", icon_url: "", criteria: { type: "count", field: "sessions", value: 1 }, users_earned: 847, created_at: "2026-01-01", updated_at: "2026-05-01" },
+  { id: "b2", key: "goal_setter", title: "Goal Setter", description: "Completed training for 3 consecutive days", points: 20, icon: "goal_setter", icon_url: "", criteria: { type: "streak", field: "daily_sessions", value: 3 }, users_earned: 523, created_at: "2026-01-01", updated_at: "2026-05-01" },
+  { id: "b3", key: "consistency_master", title: "Consistency Master", description: "Finished 10 training sessions", points: 50, icon: "consistency_master", icon_url: "", criteria: { type: "count", field: "sessions", value: 10 }, users_earned: 312, created_at: "2026-01-01", updated_at: "2026-05-01" },
+  { id: "b4", key: "marathon_trainer", title: "Marathon Trainer", description: "Completed a session before 7 AM", points: 15, icon: "first_session", icon_url: "", criteria: { type: "time", field: "session_time" }, users_earned: 189, created_at: "2026-01-01", updated_at: "2026-05-01" },
+  { id: "b5", key: "perfect_week", title: "Perfect Week", description: "Completed all 7 days without missing a session", points: 30, icon: "goal_setter", icon_url: "", criteria: { type: "streak", field: "weekly_sessions", value: 7 }, users_earned: 98, created_at: "2026-01-01", updated_at: "2026-05-01" },
+  { id: "b6", key: "community_hero", title: "Community Hero", description: "Referred 5 friends to the platform", points: 40, icon: "consistency_master", icon_url: "", criteria: { type: "count", field: "referrals", value: 5 }, users_earned: 67, created_at: "2026-01-01", updated_at: "2026-05-01" },
+];
 
 export const DEMO_PRODUCT_PAGINATION = {
   page: 1, limit: 10, total: 7, total_pages: 1, has_next_page: false, has_previous_page: false,
