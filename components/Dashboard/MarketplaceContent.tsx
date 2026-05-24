@@ -102,6 +102,7 @@ import { ProductTable } from './marketplace-management/ProductTable';
 import { AddProductModal } from './marketplace-management/modals/AddProductModal';
 import { ProductDetailsModal } from './marketplace-management/modals/ProductDetailsModal';
 import { Product } from '@/types/marketplace/types';
+import { DEMO_PRODUCTS, DEMO_PRODUCT_PAGINATION } from '@/public/demoData/DemoData';
 
 export const MarketplaceContent = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -115,6 +116,12 @@ export const MarketplaceContent = () => {
 
     const { products, pagination, loading, error, fetchProducts } = useProductList();
     const { deleteProduct, updateStatus } = useProductMutations();
+
+    const hasStatusFilter = selectedStatus !== 'All Status';
+    const showDemo = !loading && !hasStatusFilter && (!!error || !products.length);
+
+    const displayProducts = showDemo ? DEMO_PRODUCTS : products;
+    const displayPagination = showDemo ? DEMO_PRODUCT_PAGINATION : pagination;
 
     const loadProducts = useCallback(() => {
         // Pass the status to fetchProducts - if it's 'All Status', pass undefined
@@ -167,8 +174,8 @@ export const MarketplaceContent = () => {
             />
 
             <ProductTable
-                products={products}
-                pagination={pagination}
+                products={displayProducts}
+                pagination={displayPagination}
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
                 onPageChange={handlePageChange}
@@ -177,7 +184,7 @@ export const MarketplaceContent = () => {
                 onDelete={handleDelete}
                 onStatusChange={handleStatusChange} 
                 loading={loading}
-                error={error || undefined}
+                error={showDemo ? undefined : (error || undefined)}
             />
 
             <AddProductModal

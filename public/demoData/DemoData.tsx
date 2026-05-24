@@ -80,6 +80,20 @@ export const DEMO_BIO_REQUESTS = [
   { id: 3, name: "Alex Rivera", title: "Added Boxing Specialization", description: "Requesting to add 'Kickboxing' and 'Muay Thai' to my list of specialties based on new certifications earned...", status: "approved" as const, created_at: "2026-05-19" },
 ];
 
+export const DEMO_PRODUCTS = [
+  { id: "p1", productName: "Pro Resistance Bands Set", categoryId: "cat1", price: 49.99, stockQuantity: 150, brandName: "FitGear", discount: 10, description: "Set of 5 resistance bands with varying tension levels for full-body workouts.", isActive: true, status: "ACTIVE" as const, createdAt: "2026-01-15", updatedAt: "2026-05-01", images: [], hasImages: false },
+  { id: "p2", productName: "Organic Whey Protein 2lb", categoryId: "cat2", price: 39.99, stockQuantity: 85, brandName: "NutriPure", discount: 0, description: "Premium grass-fed whey protein isolate, chocolate flavor.", isActive: true, status: "ACTIVE" as const, createdAt: "2026-02-10", updatedAt: "2026-05-10", images: [], hasImages: false },
+  { id: "p3", productName: "Yoga Mat Premium Extra Thick", categoryId: "cat1", price: 29.99, stockQuantity: 200, brandName: "ZenFit", discount: 15, description: "Extra thick 6mm eco-friendly yoga mat with non-slip surface.", isActive: true, status: "ACTIVE" as const, createdAt: "2026-01-20", updatedAt: "2026-04-28", images: [], hasImages: false },
+  { id: "p4", productName: "Adjustable Dumbbells 5-25lb", categoryId: "cat1", price: 199.99, stockQuantity: 0, brandName: "FitGear", discount: 5, description: "Space-saving adjustable dumbbells with quick-change weight system.", isActive: false, status: "OUT_OF_STOCK" as const, createdAt: "2026-03-05", updatedAt: "2026-05-15", images: [], hasImages: false },
+  { id: "p5", productName: "Pre-Workout Energy Booster", categoryId: "cat2", price: 34.99, stockQuantity: 120, brandName: "NutriPure", discount: 0, description: "Clean energy pre-workout formula with beta-alanine and caffeine.", isActive: true, status: "ACTIVE" as const, createdAt: "2026-02-28", updatedAt: "2026-05-12", images: [], hasImages: false },
+  { id: "p6", productName: "Foam Roller - High Density", categoryId: "cat1", price: 24.99, stockQuantity: 0, brandName: "RecoverPro", discount: 20, description: "High-density foam roller for muscle recovery and myofascial release.", isActive: false, status: "INACTIVE" as const, createdAt: "2026-04-01", updatedAt: "2026-05-20", images: [], hasImages: false },
+  { id: "p7", productName: "Training Jump Rope", categoryId: "cat1", price: 14.99, stockQuantity: 300, brandName: "SpeedRope", discount: 0, description: "Lightweight speed jump rope with ball bearing handles.", isActive: true, status: "ACTIVE" as const, createdAt: "2026-01-05", updatedAt: "2026-04-15", images: [], hasImages: false },
+];
+
+export const DEMO_PRODUCT_PAGINATION = {
+  page: 1, limit: 10, total: 7, total_pages: 1, has_next_page: false, has_previous_page: false,
+};
+
 export const DEMO_BOOKING_LIST = {
   data: {
     data: [
