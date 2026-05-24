@@ -16,6 +16,7 @@ import { usePatchUser } from "@/hooks/user-management/usePatchUser";
 import { toast } from "sonner";
 import { useDebouncedSearch } from "@/hooks/common/useDebouncedSearch";
 import { extractUniqueValues } from "@/utils/extractUniqueValues";
+import { DEMO_USER_LIST } from "@/public/demoData/DemoData";
 
 const UserManagementContent = () => {
   const router = useRouter();
@@ -70,8 +71,12 @@ const UserManagementContent = () => {
   const { mutateAsync: deleteUser, isPending: isDeleting } = useDeleteUser();
   const { mutateAsync: patchUser, isPending: isPatching } = usePatchUser();
 
-  const users = data?.data?.data;
-  const pagination = data?.data?.pagination;
+  const hasFilters = !!(debouncedSearch || role || status);
+  const showDemo = !isLoading && !hasFilters && (error || !data?.data?.data?.length);
+
+  const userList = showDemo ? DEMO_USER_LIST : data;
+  const users = userList?.data?.data;
+  const pagination = userList?.data?.pagination;
   const totalPages = pagination?.total_pages;
 
   const displayUsers = users || [];
