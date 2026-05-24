@@ -90,6 +90,41 @@ export const DEMO_PRODUCTS = [
   { id: "p7", productName: "Training Jump Rope", categoryId: "cat1", price: 14.99, stockQuantity: 300, brandName: "SpeedRope", discount: 0, description: "Lightweight speed jump rope with ball bearing handles.", isActive: true, status: "ACTIVE" as const, createdAt: "2026-01-05", updatedAt: "2026-04-15", images: [], hasImages: false },
 ];
 
+export const DEMO_ANALYTICS_OVERVIEW = {
+  data: {
+    totalRevenue: 284500,
+    userGrowth: 1284,
+    sessionVolume: 3621,
+    completed: 2847,
+    cancelled: 423,
+  },
+};
+
+export const DEMO_ANALYTICS_REVENUE = [
+  { label: "Jan", revenue: 32000 },
+  { label: "Feb", revenue: 28500 },
+  { label: "Mar", revenue: 35800 },
+  { label: "Apr", revenue: 41200 },
+  { label: "May", revenue: 38900 },
+  { label: "Jun", revenue: 45800 },
+  { label: "Jul", revenue: 42500 },
+  { label: "Aug", revenue: 47100 },
+  { label: "Sep", revenue: 44300 },
+  { label: "Oct", revenue: 48900 },
+  { label: "Nov", revenue: 46200 },
+  { label: "Dec", revenue: 52100 },
+];
+
+export const DEMO_SESSION_TYPES = {
+  data: [
+    { type: "One-on-One", count: 184 },
+    { type: "Group Class", count: 96 },
+    { type: "Nutrition Consult", count: 52 },
+    { type: "Recovery Session", count: 38 },
+    { type: "Assessment", count: 28 },
+  ],
+};
+
 export const DEMO_PRODUCT_PAGINATION = {
   page: 1, limit: 10, total: 7, total_pages: 1, has_next_page: false, has_previous_page: false,
 };

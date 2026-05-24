@@ -16,10 +16,12 @@ import { useDownloadPdf } from '@/hooks/analytics-reports/useDownloadPdf';
 import { reportsApi } from '@/service/analytics-reports/reportService';
 import { buildReportFileName } from '@/utils/download';
 import { useState } from 'react';
+import { DEMO_ANALYTICS_OVERVIEW } from '@/public/demoData/DemoData';
 
 const AnalyticsContent = () => {
     const [period, setPeriod] = useState("last 6 months");
     const { data, isLoading, isError } = useAnalyticsOverview();
+    const overviewData = !isLoading && (isError || !data?.data) ? DEMO_ANALYTICS_OVERVIEW : data;
 
     const userActivityReport = useDownloadPdf({
         fetcher: () => reportsApi.downloadActivityReport(period),
@@ -70,18 +72,19 @@ const AnalyticsContent = () => {
     ];
 
     // ─── Stat cards ───────────────────────────────────────────────────────────
+    const showDemo = !isLoading && (isError || !data?.data);
     const statCards = [
-        { icon: <DollarIcon />, title: "Total Revenue", value: data?.data?.totalRevenue },
-        { icon: <SingleUserIcon />, title: "User Growth", value: data?.data?.userGrowth },
-        { icon: <ContentIcon />, title: "Session Volume", value: data?.data?.sessionVolume },
-        { icon: <StatUpIcon />, title: "Completed", value: data?.data?.completed },
-        { icon: <StatDownIcon />, title: "Cancelled", value: data?.data?.cancelled },
+        { icon: <DollarIcon />, title: "Total Revenue", value: overviewData?.data?.totalRevenue },
+        { icon: <SingleUserIcon />, title: "User Growth", value: overviewData?.data?.userGrowth },
+        { icon: <ContentIcon />, title: "Session Volume", value: overviewData?.data?.sessionVolume },
+        { icon: <StatUpIcon />, title: "Completed", value: overviewData?.data?.completed },
+        { icon: <StatDownIcon />, title: "Cancelled", value: overviewData?.data?.cancelled },
     ];
 
     return (
         <div className="flex flex-col h-full">
             <div>
-                <StatCards statCards={statCards} isLoading={isLoading} isError={isError} />
+                <StatCards statCards={statCards} isLoading={isLoading && !showDemo} isError={isError && !showDemo} />
             </div>
 
             <SectionWrapper>
