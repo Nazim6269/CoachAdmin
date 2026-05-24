@@ -23,6 +23,7 @@ import { toast } from "sonner";
 import { useExportBooking } from "@/hooks/booking-management/useExportBooking";
 import { usePerformance } from "@/hooks/booking-management/usePerformance";
 import PerformanceSkeleton from "./skeleton/PerformanceSkeleton";
+import { DEMO_BOOKING_LIST, DEMO_PERFORMANCE_METRICS } from "@/public/demoData/DemoData";
 
 const metricLabels: Record<string, string> = {
     total_bookings_today: "Total Bookings Today",
@@ -80,7 +81,13 @@ const BookingManagementContent = () => {
     const { data: performanceData, isLoading: isPerformanceLoading, isError: isPerformanceError } = usePerformance();
     const { mutateAsync: patchBookedUser, isPending: isPatching } = usePatchBookedUser();
 
-    const metricsArray = Object?.entries(performanceData?.data ?? {}).map(([key, value]) => ({
+    const hasFilters = !!(debouncedSearchTerm || selectedStatus);
+    const showDemo = !isLoading && !hasFilters && (isError || !data?.data?.data?.length);
+
+    const bookingList = showDemo ? DEMO_BOOKING_LIST : data;
+    const metricsSource = showDemo || (!data?.data?.data?.length && isPerformanceError) ? DEMO_PERFORMANCE_METRICS : performanceData;
+
+    const metricsArray = Object?.entries(metricsSource?.data ?? {}).map(([key, value]) => ({
         key,
         label: metricLabels[key],
         ...value
@@ -88,8 +95,8 @@ const BookingManagementContent = () => {
 
 
 
-    const bookedUsers = data?.data?.data;
-    const pagination = data?.data?.pagination;
+    const bookedUsers = bookingList?.data?.data;
+    const pagination = bookingList?.data?.pagination;
     const totalPages = pagination?.total_pages;
 
 

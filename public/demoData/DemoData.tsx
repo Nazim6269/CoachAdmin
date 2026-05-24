@@ -58,6 +58,61 @@ export const DEMO_RECENT_ACTIVITY = [
   },
 ];
 
+export const DEMO_BOOKING_LIST = {
+  data: {
+    data: [
+      { id: "1", athlete_name: "James Wilson", athlete_avatar: "", session_type: "One-on-One", coach_name: "Sarah Johnson (Strength)", date_time: "May 25, 2026 10:00 AM", status: "UPCOMING", appointment_date: "2026-05-25", session_time: "10:00", duration_minutes: 60, location: "Studio A", description: null, notes: "", created_at: "2026-05-20" },
+      { id: "2", athlete_name: "Maria Garcia", athlete_avatar: "", session_type: "Group Class", coach_name: "Mike Chen (Yoga)", date_time: "May 25, 2026 02:00 PM", status: "CONFIRMED", appointment_date: "2026-05-25", session_time: "14:00", duration_minutes: 45, location: "Studio B", description: null, notes: "", created_at: "2026-05-19" },
+      { id: "3", athlete_name: "Tom Harris", athlete_avatar: "", session_type: "One-on-One", coach_name: "Emily Davis (HIIT)", date_time: "May 24, 2026 09:00 AM", status: "COMPLETED", appointment_date: "2026-05-24", session_time: "09:00", duration_minutes: 60, location: "Studio A", description: null, notes: "", created_at: "2026-05-18" },
+      { id: "4", athlete_name: "Sophia Lee", athlete_avatar: "", session_type: "Nutrition Consult", coach_name: "Lisa Thompson (Nutrition)", date_time: "May 24, 2026 11:30 AM", status: "COMPLETED", appointment_date: "2026-05-24", session_time: "11:30", duration_minutes: 30, location: "Online", description: null, notes: "", created_at: "2026-05-17" },
+      { id: "5", athlete_name: "Daniel Kim", athlete_avatar: "", session_type: "One-on-One", coach_name: "Alex Rivera (Boxing)", date_time: "May 26, 2026 08:00 AM", status: "PENDING", appointment_date: "2026-05-26", session_time: "08:00", duration_minutes: 60, location: "Studio C", description: null, notes: "", created_at: "2026-05-16" },
+      { id: "6", athlete_name: "Emma Brown", athlete_avatar: "", session_type: "Group Class", coach_name: "Sarah Johnson (Strength)", date_time: "May 23, 2026 05:00 PM", status: "CANCELLED", appointment_date: "2026-05-23", session_time: "17:00", duration_minutes: 45, location: "Main Hall", description: null, notes: "Client requested cancellation", created_at: "2026-05-15" },
+      { id: "7", athlete_name: "Ryan Patel", athlete_avatar: "", session_type: "One-on-One", coach_name: "Mike Chen (Yoga)", date_time: "May 26, 2026 04:00 PM", status: "UPCOMING", appointment_date: "2026-05-26", session_time: "16:00", duration_minutes: 60, location: "Studio B", description: null, notes: "", created_at: "2026-05-14" },
+      { id: "8", athlete_name: "Olivia Turner", athlete_avatar: "", session_type: "Recovery Session", coach_name: "Emily Davis (HIIT)", date_time: "May 25, 2026 07:00 PM", status: "CONFIRMED", appointment_date: "2026-05-25", session_time: "19:00", duration_minutes: 30, location: "Recovery Room", description: null, notes: "", created_at: "2026-05-13" },
+      { id: "9", athlete_name: "Liam White", athlete_avatar: "", session_type: "One-on-One", coach_name: "Alex Rivera (Boxing)", date_time: "May 27, 2026 10:30 AM", status: "PENDING", appointment_date: "2026-05-27", session_time: "10:30", duration_minutes: 60, location: "Studio C", description: null, notes: "", created_at: "2026-05-12" },
+      { id: "10", athlete_name: "Ava Martinez", athlete_avatar: "", session_type: "Nutrition Consult", coach_name: "Lisa Thompson (Nutrition)", date_time: "May 24, 2026 03:00 PM", status: "COMPLETED", appointment_date: "2026-05-24", session_time: "15:00", duration_minutes: 30, location: "Online", description: null, notes: "", created_at: "2026-05-11" },
+    ],
+    pagination: { page: 1, limit: 10, total: 10, total_pages: 1, has_next_page: false, has_previous_page: false },
+  },
+  success: true,
+  statusCode: 200,
+  message: "Success",
+};
+
+export const DEMO_PERFORMANCE_METRICS = {
+  data: {
+    total_bookings_today: { value: 12, change: 8, is_positive: true, unit: "%" },
+    completion_rate: { value: 87, change: 3, is_positive: true, unit: "%" },
+    average_session_duration: { value: 52, change: 2, is_positive: true, unit: " min" },
+    cancellation_rate: { value: 13, change: 5, is_positive: false, unit: "%" },
+  },
+};
+
+export const DEMO_USER_LIST = {
+  data: {
+    data: [
+      { id: "1", user_name: "Alice Johnson", role: "Coach", email: "alice.johnson@example.com", joining_date: "2024-01-15", status: "Active", avatar: "" },
+      { id: "2", user_name: "Bob Smith", role: "Athlete", email: "bob.smith@example.com", joining_date: "2024-02-20", status: "Active", avatar: "" },
+      { id: "3", user_name: "Carol Williams", role: "Athlete", email: "carol.williams@example.com", joining_date: "2024-03-10", status: "Blocked", avatar: "" },
+      { id: "4", user_name: "David Brown", role: "Coach", email: "david.brown@example.com", joining_date: "2024-01-05", status: "Active", avatar: "" },
+      { id: "5", user_name: "Eva Martinez", role: "Athlete", email: "eva.martinez@example.com", joining_date: "2024-04-12", status: "Active", avatar: "" },
+      { id: "6", user_name: "Frank Lee", role: "Admin", email: "frank.lee@example.com", joining_date: "2023-11-01", status: "Active", avatar: "" },
+      { id: "7", user_name: "Grace Kim", role: "Athlete", email: "grace.kim@example.com", joining_date: "2024-05-22", status: "Blocked", avatar: "" },
+      { id: "8", user_name: "Henry Davis", role: "Coach", email: "henry.davis@example.com", joining_date: "2024-02-14", status: "Active", avatar: "" },
+      { id: "9", user_name: "Ivy Chen", role: "Athlete", email: "ivy.chen@example.com", joining_date: "2024-06-01", status: "Active", avatar: "" },
+      { id: "10", user_name: "Jack Wilson", role: "Athlete", email: "jack.wilson@example.com", joining_date: "2024-03-28", status: "Active", avatar: "" },
+    ],
+    pagination: {
+      page: 1,
+      limit: 10,
+      total: 10,
+      total_pages: 1,
+      has_next_page: false,
+      has_previous_page: false,
+    },
+  },
+};
+
 export const demoData = [
   {
     id: "1",
