@@ -7,16 +7,17 @@ import { DeleteIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useCoaches } from '@/hooks/content-management/useCoaches';
 import Loader from '@/components/reusable/Loader';
+import { DEMO_COACHES } from '@/public/demoData/DemoData';
 
 const CoachProfileTab = () => {
     const { coaches, loading, error, deleteCoach } = useCoaches();
+    const displayCoaches = !loading && (error || !coaches.length) ? DEMO_COACHES : coaches;
 
     if (loading) return <Loader />;
-    if (error) return <div className="text-red-500 text-center p-4">{error}</div>;
 
     return (
         <div className="space-y-4">
-            {coaches.map((coach) => (
+            {displayCoaches.map((coach) => (
                 <div
                     key={coach.id}
                     className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-primaryColor border border-gray-800 p-4 rounded-xl text-gray-100 shadow-lg transition"

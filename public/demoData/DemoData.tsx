@@ -58,6 +58,28 @@ export const DEMO_RECENT_ACTIVITY = [
   },
 ];
 
+export const DEMO_COACHES = [
+  { id: "1", name: "Sarah Johnson", email: "sarah.johnson@example.com", avatar: null, status: "Active" as const, approved_at: "2024-01-10", created_at: "2023-12-01", session_count: 142, coach_profile: { id: "c1", primary_specialty: "Strength Training", specialties: ["Strength Training", "HIIT", "CrossFit"], experience_level: "Senior", avg_rating: "4.8", rating_count: 89, is_verified: true, subscription_active: true } },
+  { id: "2", name: "Mike Chen", email: "mike.chen@example.com", avatar: null, status: "Active" as const, approved_at: "2024-02-15", created_at: "2024-01-05", session_count: 98, coach_profile: { id: "c2", primary_specialty: "Yoga & Flexibility", specialties: ["Yoga", "Pilates", "Meditation"], experience_level: "Intermediate", avg_rating: "4.6", rating_count: 54, is_verified: true, subscription_active: true } },
+  { id: "3", name: "Emily Davis", email: "emily.davis@example.com", avatar: null, status: "Pending" as const, approved_at: null, created_at: "2025-04-20", session_count: 0, coach_profile: { id: "c3", primary_specialty: "HIIT", specialties: ["HIIT", "Cardio", "Bootcamp"], experience_level: "Junior", avg_rating: null, rating_count: 0, is_verified: false, subscription_active: false } },
+  { id: "4", name: "Alex Rivera", email: "alex.rivera@example.com", avatar: null, status: "Active" as const, approved_at: "2024-03-01", created_at: "2024-02-01", session_count: 215, coach_profile: { id: "c4", primary_specialty: "Boxing", specialties: ["Boxing", "MMA", "Self-Defense"], experience_level: "Senior", avg_rating: "4.9", rating_count: 134, is_verified: true, subscription_active: true } },
+  { id: "5", name: "Lisa Thompson", email: "lisa.thompson@example.com", avatar: null, status: "Inactive" as const, approved_at: "2024-06-01", created_at: "2024-05-15", session_count: 67, coach_profile: { id: "c5", primary_specialty: "Nutrition", specialties: ["Nutrition", "Weight Management", "Meal Planning"], experience_level: "Senior", avg_rating: "4.7", rating_count: 42, is_verified: true, subscription_active: false } },
+];
+
+export const DEMO_SESSION_VALIDATIONS = [
+  { id: "s1", athlete: { id: "a1", name: "James Wilson", email: "james@example.com", avatar: null, role: "Athlete", type: "premium" }, coach: { id: "c1", name: "Sarah Johnson", email: "sarah@example.com", avatar: null, role: "Coach", type: "coach" }, session: { date: "May 25, 2026", time: "10:00 AM", date_time: "2026-05-25T10:00:00", appointment_date: "2026-05-25", session_time: "10:00" }, status: "COMPLETED" as const, validation_token: "tok_abc123", is_validated: true },
+  { id: "s2", athlete: { id: "a2", name: "Maria Garcia", email: "maria@example.com", avatar: null, role: "Athlete", type: "standard" }, coach: { id: "c2", name: "Mike Chen", email: "mike@example.com", avatar: null, role: "Coach", type: "coach" }, session: { date: "May 25, 2026", time: "02:00 PM", date_time: "2026-05-25T14:00:00", appointment_date: "2026-05-25", session_time: "14:00" }, status: "CONFIRMED" as const, validation_token: "tok_def456", is_validated: false },
+  { id: "s3", athlete: { id: "a3", name: "Tom Harris", email: "tom@example.com", avatar: null, role: "Athlete", type: "premium" }, coach: { id: "c4", name: "Alex Rivera", email: "alex@example.com", avatar: null, role: "Coach", type: "coach" }, session: { date: "May 24, 2026", time: "09:00 AM", date_time: "2026-05-24T09:00:00", appointment_date: "2026-05-24", session_time: "09:00" }, status: "COMPLETED" as const, validation_token: "tok_ghi789", is_validated: true },
+  { id: "s4", athlete: { id: "a4", name: "Sophia Lee", email: "sophia@example.com", avatar: null, role: "Athlete", type: "standard" }, coach: { id: "c5", name: "Lisa Thompson", email: "lisa@example.com", avatar: null, role: "Coach", type: "coach" }, session: { date: "May 26, 2026", time: "11:30 AM", date_time: "2026-05-26T11:30:00", appointment_date: "2026-05-26", session_time: "11:30" }, status: "PENDING" as const, validation_token: null, is_validated: false },
+  { id: "s5", athlete: { id: "a5", name: "Emma Brown", email: "emma@example.com", avatar: null, role: "Athlete", type: "standard" }, coach: { id: "c1", name: "Sarah Johnson", email: "sarah@example.com", avatar: null, role: "Coach", type: "coach" }, session: { date: "May 23, 2026", time: "05:00 PM", date_time: "2026-05-23T17:00:00", appointment_date: "2026-05-23", session_time: "17:00" }, status: "CANCELLED" as const, validation_token: null, is_validated: false },
+];
+
+export const DEMO_BIO_REQUESTS = [
+  { id: 1, name: "Sarah Johnson", title: "Updated Coaching Philosophy", description: "I have developed a new holistic approach to strength training that incorporates mobility work and recovery protocols...", status: "pending" as const, created_at: "2026-05-22" },
+  { id: 2, name: "Mike Chen", title: "New Yoga Certification", description: "Recently completed advanced Yoga Teacher Training (RYT-500) and would like to update my credentials and add new class offerings...", status: "pending" as const, created_at: "2026-05-21" },
+  { id: 3, name: "Alex Rivera", title: "Added Boxing Specialization", description: "Requesting to add 'Kickboxing' and 'Muay Thai' to my list of specialties based on new certifications earned...", status: "approved" as const, created_at: "2026-05-19" },
+];
+
 export const DEMO_BOOKING_LIST = {
   data: {
     data: [

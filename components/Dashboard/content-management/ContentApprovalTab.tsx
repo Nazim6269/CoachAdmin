@@ -5,16 +5,17 @@ import { Delete } from 'lucide-react';
 import React from 'react';
 import Loader from '@/components/reusable/Loader';
 import { useBioRequests } from '@/hooks/content-management/useBioRequest';
+import { DEMO_BIO_REQUESTS } from '@/public/demoData/DemoData';
 
 const ContentApprovalTab = () => {
     const { requests, loading, error, approveRequest, rejectRequest } = useBioRequests();
+    const displayRequests = !loading && (error || !requests.length) ? DEMO_BIO_REQUESTS : requests;
 
     if (loading) return <Loader />;
-    if (error) return <div className="text-red-500 text-center p-4">{error}</div>;
 
     return (
         <div className="space-y-2">
-            {requests.map((item) => (
+            {displayRequests.map((item) => (
                 <div
                     key={item.id}
                     className="flex flex-col sm:flex-row sm:items-center justify-between bg-primaryColor border border-gray-800 rounded-xl p-4 text-gray-200 hover:bg-primaryColor/20 transition gap-3"
